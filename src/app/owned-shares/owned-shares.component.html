@@ -18,6 +18,14 @@
         <th mat-header-cell *matHeaderCellDef> Dato</th>
         <td mat-cell *matCellDef="let ownedShare"> {{ ownedShare.buyDate }} </td>
     </ng-container>
+    <ng-container matColumnDef="profit">
+      <th mat-header-cell *matHeaderCellDef>Fortjeneste</th>
+      <td mat-cell
+          *matCellDef="let ownedShare"
+          [ngStyle]="{'color': ownedShare.share.currentPrice - ownedShare.buyPrice >= 0 ? 'green' : 'red'}">
+        {{ ownedShare.share.currentPrice-ownedShare.buyPrice  }}
+      </td>
+  </ng-container>
     <ng-container matColumnDef="actions">
         <th mat-header-cell *matHeaderCellDef></th>
         <td mat-cell *matCellDef="let share">
