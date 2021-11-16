@@ -16,11 +16,11 @@
     </ng-container>
     <ng-container matColumnDef="date">
         <th mat-header-cell *matHeaderCellDef>Dato</th>
-        <td mat-cell *matCellDef="let transaction"> {{ transaction.description }} </td>
+        <td mat-cell *matCellDef="let transaction"> {{ transaction.date }} </td>
     </ng-container>
     <ng-container matColumnDef="description">
         <th mat-header-cell *matHeaderCellDef>Beskrivelse</th>
-        <td mat-cell *matCellDef="let transaction"> {{ transaction.date }} </td>
+        <td mat-cell *matCellDef="let transaction"> {{ transaction.description }} </td>
     </ng-container>
     <ng-container matColumnDef="category">
         <th mat-header-cell *matHeaderCellDef>Kategori</th>
