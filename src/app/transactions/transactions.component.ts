@@ -37,4 +37,10 @@ export class TransactionsComponent implements OnInit {
             }
         });
     }
+
+
+    toTopFunction() {
+      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    }
+
 }
