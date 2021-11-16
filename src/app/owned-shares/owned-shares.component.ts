@@ -8,7 +8,7 @@ import { ApiService } from "../../../generated/api/services/api.service";
     styleUrls: ['./owned-shares.component.scss']
 })
 export class OwnedSharesComponent implements OnInit {
-    public displayColumns: string[] = ['name', 'buyPrice', 'sellPrice', 'buyDate', 'actions'];
+    public displayColumns: string[] = ['name', 'buyPrice', 'sellPrice', 'buyDate', 'profit', 'actions'];
     public ownedShares?: OwnedShare[];
     public error: string | undefined;
 
@@ -21,7 +21,7 @@ export class OwnedSharesComponent implements OnInit {
     }
 
     updateOwnedShares() {
-        
+
             this.apiService.investmentShareOwnedGet().toPromise()
                 .then((ownedShares: OwnedShare[]) => {
                     this.ownedShares = ownedShares;
