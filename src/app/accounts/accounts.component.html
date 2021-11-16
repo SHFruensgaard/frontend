@@ -14,7 +14,7 @@
             <th mat-header-cell *matHeaderCellDef>Konto balance</th>
             <td mat-cell
                 *matCellDef="let account"
-                [ngStyle]="{'color': account.balance <= 0 ? 'green' : 'red'}">
+                [ngStyle]="{'color': account.balance >= 0 ? 'green' : 'red'}">
                 {{ account.balance }}
             </td>
         </ng-container>
