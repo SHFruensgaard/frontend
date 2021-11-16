@@ -22,12 +22,16 @@ export class SharesComponent implements OnInit {
     }
 
     buyShare(shareId: string) {
-        this.apiService.investmentShareBuyPost({'body': shareId}).toPromise()
-            .catch(error => window.alert(error.message));
-        if (this.shares) {
-            this.eastereggService.y(shareId, this.shares.map(x => Object.assign({}, x)))
+        const dialogConfirmed = confirm("Er du sikker på at du vil købe aktien?");
+        if (dialogConfirmed) {
+            this.apiService.investmentShareBuyPost({'body': shareId}).toPromise()
+                .catch(error => window.alert(error.message));
+            if (this.shares) {
+                this.eastereggService.y(shareId, this.shares.map(x => Object.assign({}, x)))
+            }
+            this.updateShares();
         }
-        this.updateShares();
+
     }
 
     updateShares() {

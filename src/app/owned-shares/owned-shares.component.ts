@@ -21,20 +21,24 @@ export class OwnedSharesComponent implements OnInit {
     }
 
     updateOwnedShares() {
-        this.apiService.investmentShareOwnedGet().toPromise()
-            .then((ownedShares: OwnedShare[]) => {
-                this.ownedShares = ownedShares;
-                this.error = undefined;
-            })
-            .catch(error => {
-                this.ownedShares = undefined;
-                this.error = error.message;
-            });
+        
+            this.apiService.investmentShareOwnedGet().toPromise()
+                .then((ownedShares: OwnedShare[]) => {
+                    this.ownedShares = ownedShares;
+                    this.error = undefined;
+                })
+                .catch(error => {
+                    this.ownedShares = undefined;
+                    this.error = error.message;
+                });
     }
 
     sellShare(ownedShareId: string) {
-        this.apiService.investmentShareSellPost({'body': ownedShareId}).toPromise()
-            .catch(error => window.alert(error.message));
-        this.updateOwnedShares();
+        const dialogConfirmed = confirm("Er du sikker på at du vil sælge aktien?");
+        if (dialogConfirmed) {
+            this.apiService.investmentShareSellPost({'body': ownedShareId}).toPromise()
+                .catch(error => window.alert(error.message));
+            this.updateOwnedShares();
+        }
     }
 }
