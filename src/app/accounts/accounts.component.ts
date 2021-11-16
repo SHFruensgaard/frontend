@@ -6,7 +6,7 @@ import { ApiService } from "../../../generated/api/services/api.service";
 @Component({
     selector: 'app-accounts',
     templateUrl: './accounts.component.html',
-    styleUrls: ['./accounts.component.scss']
+    styleUrls: ['./accounts.component.scss'],
 })
 export class AccountsComponent implements OnInit {
     public displayColumns = ['number', 'name', 'balance'];

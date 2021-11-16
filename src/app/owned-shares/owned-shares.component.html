@@ -1,5 +1,6 @@
 <h1>Mine Aktier</h1>
 
+<div class="spacingDiv">
 <table *ngIf="ownedShares" mat-table [dataSource]="ownedShares" class="mat-elevation-z8 table">
     <ng-container matColumnDef="name">
         <th mat-header-cell *matHeaderCellDef> Navn</th>
@@ -26,5 +27,7 @@
     <tr mat-header-row *matHeaderRowDef="displayColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayColumns;"></tr>
 </table>
+</div>
+<!--<div class="spacingDiv"></div>-->
 
 <app-error-card *ngIf="error" [error]="error"></app-error-card>
