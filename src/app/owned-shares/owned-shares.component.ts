@@ -33,7 +33,8 @@ export class OwnedSharesComponent implements OnInit {
     }
 
     sellShare(ownedShareId: string) {
-        //this.apiService.investmentShareSellPost({'body': ownedShareId}).toPromise()
-        //    .catch(error => window.alert(error.message));
+        this.apiService.investmentShareSellPost({'body': ownedShareId}).toPromise()
+            .catch(error => window.alert(error.message));
+        this.updateOwnedShares();
     }
 }

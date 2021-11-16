@@ -27,6 +27,7 @@ export class SharesComponent implements OnInit {
         if (this.shares) {
             this.eastereggService.y(shareId, this.shares.map(x => Object.assign({}, x)))
         }
+        this.updateShares();
     }
 
     updateShares() {
