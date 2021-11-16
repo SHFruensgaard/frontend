@@ -13,7 +13,7 @@ export class TransactionsComponent implements OnInit {
 
     public account!: Account;
     public transactions!: Transaction[];
-    public displayedColumns = ['description', 'amount', 'date'];
+    public displayedColumns = ['description', 'amount', 'date', 'category'];
 
     constructor(private apiService: ApiService, private route: ActivatedRoute) {
     }
